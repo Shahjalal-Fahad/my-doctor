@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Nav from './components/Nav/Nav';
+import NotFound from './components/NotFound/NotFound';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import Services from './components/Services/Services';
 import SignUp from './components/SignUp/SignUp';
@@ -14,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Carrosel></Carrosel>
+       
       <Nav></Nav>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
@@ -24,6 +25,7 @@ function App() {
         }></Route>
         <Route path='/services' element={<Services/>}></Route>
         <Route path='/home' element={<Home/>}></Route>
+        <Route path='*' element={<NotFound/>}></Route>
       </Routes>
     </div>
   );
