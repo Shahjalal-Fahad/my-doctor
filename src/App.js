@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
+import Carrosel from './components/Carrosel/Carrosel';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
+      <Carrosel></Carrosel>
       <Nav></Nav>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
