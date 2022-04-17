@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './SignUp.css'
 import auth from '../../firebase.init';
+import VerifyEmail from '../VerifyEmail/VerifyEmail';
+import Loading from '../Loading/Loading';
+import { sendEmailVerification } from 'firebase/auth';
 
 const SignUp = () => {
     
@@ -11,7 +14,7 @@ const SignUp = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth,sendEmailVerification);
     const navigate = useNavigate();
 
     const navigateLogin = () =>{
@@ -21,7 +24,9 @@ const SignUp = () => {
     if(user){
         navigate('/home');
     }
-
+    if(loading ){
+        return <Loading></Loading>
+    }
     const handleRegister = event =>{
         event.preventDefault();
         const name = event.target.name.value;
@@ -29,6 +34,8 @@ const SignUp = () => {
         const password = event.target.password.value;
 
         createUserWithEmailAndPassword(email, password);
+        
+        
     }
     return (
        
@@ -43,6 +50,7 @@ const SignUp = () => {
             <input type="password" name="password" id="" placeholder='Password' required/>
             <input className='' type="submit" value="SignUp" />
         </form>
+        <VerifyEmail></VerifyEmail>
         <p>Already have an account? <Link to="/login" className='text-danger pe-auto text-decoration-none' onClick={navigateLogin}>Please Login</Link> </p>
     </div>
     );

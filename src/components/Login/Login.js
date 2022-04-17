@@ -3,8 +3,12 @@ import { Button, Form, Toast } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
+import 'react-toastify/dist/ReactToastify.css';
+import VerifyEmail from '../VerifyEmail/VerifyEmail';
+
 
 const Login = () => {
     const emailRef = useRef('');
@@ -14,16 +18,7 @@ const Login = () => {
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     let from = location.state?.from?.pathname || "/";
-    const resetPassword = async () => {
-        const email = emailRef.current.value;
-        if (email) {
-            await sendPasswordResetEmail(email);
-            Toast('Sent email');
-        }
-        else{
-            toast('please enter your email address');
-        }
-    }
+    
 
     const [
         signInWithEmailAndPassword,
@@ -52,7 +47,19 @@ const Login = () => {
     }
 
     const navigateRegister = event => {
+        event.preventDefault();
+
         navigate('/signup');
+    }
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            Toast('Sent email');
+        }
+        else{
+            toast('please enter your email address');
+        }
     }
     return (
         <div className='container w-50 mx-auto'  style={{height:'100vh'}}>
@@ -71,7 +78,8 @@ const Login = () => {
                 </Button>
             </Form>
             {errorElement}
-            <p>New to ? <Link to="/signup" className='text-danger pe-auto text-decoration-none' onClick={navigateRegister}>Please Register</Link> </p>
+            <VerifyEmail></VerifyEmail>
+            <p>New to My Doctor? <Link to="/signup" className='text-danger pe-auto text-decoration-none' onClick={navigateRegister}>Please Register</Link> </p>
             <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
 
         </div>
