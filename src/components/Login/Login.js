@@ -11,6 +11,7 @@ const Login = () => {
     const passwordRef = useRef('');
     const navigate = useNavigate();
     const location = useLocation();
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     let from = location.state?.from?.pathname || "/";
     const resetPassword = async () => {
@@ -30,7 +31,6 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     if (loading || sending) {
         return <Loading></Loading>
