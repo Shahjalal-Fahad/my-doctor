@@ -3,6 +3,7 @@ import './App.css';
 import About from './components/About/About';
 import Blog from './components/Blog/Blog';
 import Carrosel from './components/Carrosel/Carrosel';
+import CheckOut from './components/CheckOut/CheckOut';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -18,17 +19,19 @@ function App() {
     <div className="App">
       <Header></Header>
        
-      <Nav></Nav>
+      {/* <Nav></Nav> */}
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
         <Route path='/about' element={<RequireAuth><About/></RequireAuth>
         }></Route>
-        <Route path='/services' element={<Services/>}></Route>
+        <Route path='/services' element={<RequireAuth><Services/></RequireAuth>}></Route>
         <Route path='/home' element={<Home/>}></Route>
         <Route path='/blog' element={<Blog/>}></Route>
-
+        <Route path='/checkout' element={<RequireAuth><CheckOut/></RequireAuth>
+        }></Route>
+        <Route path='/services' element={<Services/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
       </Routes>
       <Footer/>
