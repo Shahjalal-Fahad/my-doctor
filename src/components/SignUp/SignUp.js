@@ -31,7 +31,9 @@ const SignUp = () => {
         createUserWithEmailAndPassword(email, password);
     }
     return (
-        <div className='register-form'>
+       
+
+        <div className='register-form'  style={{height:'100vh'}}>
         <h2 style={{textAlign: 'center'}}>Please SignUp</h2>
         <form onSubmit={handleRegister}>
             <input type="text" name="name" id="" placeholder='Your Name'/>

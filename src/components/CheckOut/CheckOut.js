@@ -2,7 +2,7 @@ import React from 'react';
 
 const CheckOut = () => {
     return (
-        <div className=''>
+        <div className='' style={{height:'100vh'}}>
             <h2>
 
             Thanks for taking appointment
