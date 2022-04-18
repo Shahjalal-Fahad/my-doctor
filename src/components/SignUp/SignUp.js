@@ -1,37 +1,43 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './SignUp.css'
 import auth from '../../firebase.init';
 import VerifyEmail from '../VerifyEmail/VerifyEmail';
 import Loading from '../Loading/Loading';
-import { sendEmailVerification } from 'firebase/auth';
+import { Button, Form } from 'react-bootstrap';
 
 const SignUp = () => {
-    
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const nameRef = useRef('');
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth,sendEmailVerification);
+      ] = useCreateUserWithEmailAndPassword(auth);
     const navigate = useNavigate();
 
     const navigateLogin = () =>{
         navigate('/login');
     }
 
-    if(user){
-        navigate('/home');
-    }
     if(loading ){
         return <Loading></Loading>
     }
+    if(user){
+        navigate('/home');
+    }
+    // register
     const handleRegister = event =>{
         event.preventDefault();
-        const name = event.target.name.value;
-        const email = event.target.email.value;
-        const password = event.target.password.value;
+        // const name = event.target.name.value;
+        // const email = event.target.email.value;
+        // const password = event.target.password.value;
+        const name=nameRef.current.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
 
         createUserWithEmailAndPassword(email, password);
         
@@ -43,14 +49,23 @@ const SignUp = () => {
         <div className='register-form'  style={{height:'100vh'}}>
         <h2 style={{textAlign: 'center'}}>Please SignUp</h2>
         <form onSubmit={handleRegister}>
-            <input type="text" name="name" id="" placeholder='Your Name'/>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Control ref={nameRef} type="text" placeholder="Name" required />
+                   
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Control ref={emailRef} type="email" placeholder="Email" required />
             
-            <input type="email" name="email" id="" placeholder='Email Address' required/>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
             
-            <input type="password" name="password" id="" placeholder='Password' required/>
-            <input className='' type="submit" value="SignUp" />
+        </Form.Group>
+           
+        <Button variant="primary" type="submit">
+                Submit
+        </Button>
         </form>
-        <VerifyEmail></VerifyEmail>
         <p>Already have an account? <Link to="/login" className='text-danger pe-auto text-decoration-none' onClick={navigateLogin}>Please Login</Link> </p>
     </div>
     );

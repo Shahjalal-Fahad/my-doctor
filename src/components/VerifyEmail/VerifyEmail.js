@@ -21,7 +21,7 @@ const VerifyEmail = () => {
   }
   return (
     <div className="App">
-      <button
+      <button className=' btn btn-secondary my-2'
         onClick={async () => {
           await sendEmailVerification();
           alert('Sent email');
