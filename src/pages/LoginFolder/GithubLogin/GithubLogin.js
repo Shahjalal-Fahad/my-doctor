@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSignInWithGithub } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import auth from '../../firebase.init';
-import Loading from '../Loading/Loading';
+import auth from '../../../firebase.init';
+// import Loading from '../Loading/Loading';
+import Loading from '../../Shared/Loading/Loading';
 
 const GithubLogin = () => { 
     const [signInWithGithub, user, loading, error] = useSignInWithGithub(auth);

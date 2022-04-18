@@ -3,11 +3,14 @@ import { Button, Form, Toast } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import auth from '../../../firebase.init';
 
-import auth from '../../firebase.init';
-import Loading from '../Loading/Loading';
+// import auth from '../../firebase.init';
+// import Loading from '../Loading/Loading';
+import Loading from '../../Shared/Loading/Loading';
 import 'react-toastify/dist/ReactToastify.css';
-import VerifyEmail from '../VerifyEmail/VerifyEmail';
+// import VerifyEmail from '../VerifyEmail/VerifyEmail';
+import VerifyEmail from '../VerifyEmail/VerifyEmail'
 
 
 const Login = () => {

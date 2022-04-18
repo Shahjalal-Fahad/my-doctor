@@ -2,10 +2,12 @@ import React, { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './SignUp.css'
-import auth from '../../firebase.init';
-import VerifyEmail from '../VerifyEmail/VerifyEmail';
-import Loading from '../Loading/Loading';
+import auth from '../../../firebase.init';
+// import VerifyEmail from '../VerifyEmail/VerifyEmail';
+// import Loading from '../../Loading/Loading';
+import Loading from '../../Shared/Loading/Loading';
 import { Button, Form } from 'react-bootstrap';
+// import GithubLogin from '../GithubLogin/GithubLogin';
 import GithubLogin from '../GithubLogin/GithubLogin';
 
 const SignUp = () => {

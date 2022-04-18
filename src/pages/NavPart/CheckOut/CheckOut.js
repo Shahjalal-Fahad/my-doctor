@@ -1,8 +1,11 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import auth from '../../firebase.init';
-import Loading from '../Loading/Loading';
+// import auth from '../../firebase.init';
+import auth from '../../../firebase.init';
+
+// import Loading from '../Loading/Loading';
+import Loading from '../../Shared/Loading/Loading';
 
 const CheckOut = () => {
     const navigate=useNavigate()

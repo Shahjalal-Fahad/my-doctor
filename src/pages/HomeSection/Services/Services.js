@@ -2,8 +2,10 @@ import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useNavigate } from 'react-router-dom';
-import auth from '../../firebase.init';
-import Loading from '../Loading/Loading';
+import auth from '../../../firebase.init';
+// import Loading from '../Loading/Loading';
+import Loading from '../../Shared/Loading/Loading';
+
 
 const Services = () => {
   const [user, loading, error] = useAuthState(auth);
