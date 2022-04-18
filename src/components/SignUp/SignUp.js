@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import VerifyEmail from '../VerifyEmail/VerifyEmail';
 import Loading from '../Loading/Loading';
 import { Button, Form } from 'react-bootstrap';
+import GithubLogin from '../GithubLogin/GithubLogin';
 
 const SignUp = () => {
     const emailRef = useRef('');
@@ -66,6 +67,7 @@ const SignUp = () => {
                 Submit
         </Button>
         </form>
+        <GithubLogin></GithubLogin>
         <p>Already have an account? <Link to="/login" className='text-danger pe-auto text-decoration-none' onClick={navigateLogin}>Please Login</Link> </p>
     </div>
     );

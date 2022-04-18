@@ -16,7 +16,10 @@ const Services = () => {
   }
     return (
         <div>
+          <h1 className='my-3'>
             This is service 
+
+          </h1>
             <CardGroup>
   <Card>
     <Card.Img className='' variant="top" src="https://images.squarespace-cdn.com/content/v1/5b913ac48f51305fb1c3545a/1561968038174-EJFCDQ94J43IOVGSE5SB/primary+care+physician" />
