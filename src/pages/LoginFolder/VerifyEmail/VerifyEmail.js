@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-
 import { useSendEmailVerification } from 'react-firebase-hooks/auth';
-// import auth from '../../firebase.init';
 import auth from '../../../firebase.init';
 
 
 const VerifyEmail = () => {
-  const [email, setEmail] = useState('');
   const [sendEmailVerification, sending, error] = useSendEmailVerification(
     auth
   );
-
+// error
   if (error) {
     return (
       <div>

@@ -1,10 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
-// import auth from '../../firebase.init';
 import auth from '../../../firebase.init';
-
-// import Loading from '../Loading/Loading';
 import Loading from '../../Shared/Loading/Loading';
 
 const RequireAuth = ({children}) => {
@@ -14,6 +11,7 @@ const RequireAuth = ({children}) => {
     if(loading){
         return <Loading/>
     }
+    // if user not founf
     if(!user){
         return <Navigate to="/login" state={{ from: location }} replace />;
     }

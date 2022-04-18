@@ -1,14 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-// import About from './components/About/About';
-// import Blog from './components/Blog/Blog';
 import Blog from '../src/pages/NavPart/Blog/Blog'
 import About from '../src/pages/NavPart/About/About'
-
-// import Carrosel from './components/Carrosel/Carrosel';
 import Carrosel from '../src/pages/HomeSection/Carrosel/Carrosel'
-
-
 import CheckOut from '../src/pages/NavPart/CheckOut/CheckOut';
 import Footer from '../src/pages/Shared/Footer/Footer';
 import Header from '../src/pages/Shared/Header/Header';
@@ -17,7 +11,7 @@ import Login from '../src/pages/LoginFolder/Login/Login';
 import Nav from '../src/pages/Shared/Nav/Nav';
 import NotFound from '../src/pages/Shared/NotFound/NotFound';
 import RequireAuth from '../src/pages/LoginFolder/RequireAuth/RequireAuth';
-import Services from '../src/pages/HomeSection/Home/Home';
+import Services from '../src/pages/HomeSection/Services/Services';
 import SignUp from '../src/pages/LoginFolder/SignUp/SignUp';
 
 function App() {

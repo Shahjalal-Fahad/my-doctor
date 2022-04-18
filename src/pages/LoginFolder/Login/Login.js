@@ -5,11 +5,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
 
-// import auth from '../../firebase.init';
-// import Loading from '../Loading/Loading';
 import Loading from '../../Shared/Loading/Loading';
 import 'react-toastify/dist/ReactToastify.css';
-// import VerifyEmail from '../VerifyEmail/VerifyEmail';
 import VerifyEmail from '../VerifyEmail/VerifyEmail'
 
 
@@ -22,7 +19,7 @@ const Login = () => {
 
     let from = location.state?.from?.pathname || "/";
     
-
+// email sign in
     const [
         signInWithEmailAndPassword,
         user,
@@ -40,7 +37,7 @@ const Login = () => {
     if (error) {
         errorElement = <p className='text-danger'>Error: {error?.message}</p>
     }
-
+// handler
     const handleSubmit = event => {
         event.preventDefault();
         const email = emailRef.current.value;
@@ -54,6 +51,7 @@ const Login = () => {
 
         navigate('/signup');
     }
+    // reset pass
     const resetPassword = async () => {
         const email = emailRef.current.value;
         if (email) {

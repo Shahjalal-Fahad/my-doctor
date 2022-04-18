@@ -10,7 +10,6 @@ const Home = () => {
              <Carrosel/>
              <Services/>
              <Extra/>
-             {/* <Description/> */}
         </div>
     );
 };
